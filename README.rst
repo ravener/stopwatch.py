@@ -6,11 +6,13 @@ Install
 -------
 
 .. code:: sh
-    pip install stopwatch.py
+
+   pip install stopwatch.py
 
 Usage
 -----
 .. code:: py
+
     from stopwatch import Stopwatch
 
     stopwatch = Stopwatch() # Stopwatch keeps running

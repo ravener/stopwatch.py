@@ -1,6 +1,6 @@
 Stopwatch.py
 ============
-A simple stopwatch for python, small, efficient and no dependencies
+A simple stopwatch for Python that is small, efficient and requires no dependencies.
 
 Install
 -------
@@ -30,7 +30,7 @@ Usage
 
 Python2 Support?
 ----------------
-No sorry, This module depends on ``time.perf_counter()`` which doesn't exist on Python2 it should be compatible with any python3+ versions, maybe even other python implementations if it implements ``time.perf_counter()``
+Sorry, this module depends on ``time.perf_counter()`` which doesn't exist on Python2. However, it should be compatible with any python3+ versions, maybe even other python implementations if it implements ``time.perf_counter()``
 
 License
 -------

@@ -21,45 +21,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from __future__ import annotations
+
 import time
+from typing import Optional
 
 
 # Ported from https://github.com/dirigeants/klasa/blob/541c9e5f5646db4162f54c7ed61362d479176eed/src/lib/util/Stopwatch.js
 class Stopwatch:
+    _start: float
+    _end: Optional[float]
+
     def __init__(self):
         self._start = time.perf_counter()
         self._end = None
 
     @property
-    def duration(self):
-        return self._end - self._start if self._end else time.perf_counter() - self._start
+    def duration(self) -> float:
+        return self._end - self._start if self._end else time.perf_counter(
+        ) - self._start
 
     @property
-    def running(self):
+    def running(self) -> bool:
         return not self._end
 
-    def restart(self):
+    def restart(self) -> Stopwatch:
         self._start = time.perf_counter()
         self._end = None
         return self
 
-    def reset(self):
+    def reset(self) -> Stopwatch:
         self._start = time.perf_counter()
         self._end = self._start
         return self
 
-    def start(self):
+    def start(self) -> Stopwatch:
         if not self.running:
             self._start = time.perf_counter() - self.duration
             self._end = None
         return self
 
-    def stop(self):
+    def stop(self) -> Stopwatch:
         if self.running:
             self._end = time.perf_counter()
         return self
 
-    def __str__(self):
+    def __str__(self) -> str:
         time = self.duration * 1000
         if time >= 1000:
             return "{:.2f}s".format(time / 1000)

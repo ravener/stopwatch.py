@@ -38,4 +38,4 @@ MIT
 
 Credits
 -------
-Originally written by `dirigeants <https://github.com/dirigeants>`_ in `this file <https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js>`_ i just looked at it and rewrote it in python, and it felt useful to put it in a module.
+Originally written by `dirigeants <https://github.com/dirigeants>`_ in `this file <https://github.com/dirigeants/klasa/blob/541c9e5f5646db4162f54c7ed61362d479176eed/src/lib/util/Stopwatch.js>`_ i just looked at it and rewrote it in python, and it felt useful to put it in a module.

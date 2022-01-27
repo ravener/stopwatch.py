@@ -13,8 +13,9 @@ import unittest
 # and the `await` to a `yield from`
 # For even lower python versions where asyncio didn't exist, just comment that lines
 
+
 class StopwatchTest(unittest.TestCase):
-    
+
     def testStopwatch(self):
         """Tests stopwatch timing"""
         stopwatch = Stopwatch()
@@ -22,8 +23,8 @@ class StopwatchTest(unittest.TestCase):
         stopwatch.stop()
         m = str(stopwatch)
 
-        # Can't gurantee exact timings as python speed may differ each execution
-        # so ensure it is atleast a 100ms
+        # Can't guarantee exact timings as python speed may differ each execution
+        # so ensure it is at least a 100ms
         # also a test for friendly time string
         self.assertTrue(m.startswith("100") and m.endswith("ms"))
 
@@ -56,11 +57,14 @@ class StopwatchTest(unittest.TestCase):
 
     def testAsync(self):
         """Tests that it doesn't do any bad behaviors on asyncio event loop"""
+
         async def main():
             stopwatch = Stopwatch()
             await asyncio.sleep(1)
             self.assertTrue((stopwatch.duration * 1000) >= 1000)
+
         asyncio.get_event_loop().run_until_complete(main())
+
 
 if __name__ == "__main__":
     unittest.main()

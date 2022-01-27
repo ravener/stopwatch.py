@@ -38,30 +38,72 @@ class Stopwatch:
 
     @property
     def duration(self) -> float:
-        return self._end - self._start if self._end else time.perf_counter(
-        ) - self._start
+        """
+        The duration of this stopwatch since start or start to end if this
+        stopwatch has stopped.
+
+        Returns:
+            float: The duration of the stopwatch in seconds.
+
+        """
+        return (self._end or time.perf_counter()) - self._start
 
     @property
     def running(self) -> bool:
+        """
+        Check if the stopwatch is running or not.
+
+        Returns:
+            bool: True if the stopwatch is running, False if stopped.
+
+        """
         return not self._end
 
     def restart(self) -> Stopwatch:
+        """
+        Reset and start the stopwatch.
+
+        Returns:
+            Stopwatch: The restarted stopwatch.
+
+        """
         self._start = time.perf_counter()
         self._end = None
         return self
 
     def reset(self) -> Stopwatch:
+        """
+        Resets the Stopwatch to 0 duration.
+
+        Returns:
+            Stopwatch: The resetted stopwatch.
+        
+        """
         self._start = time.perf_counter()
         self._end = self._start
         return self
 
     def start(self) -> Stopwatch:
+        """
+        Starts the stopwatch.
+
+        Returns:
+            Stopwatch: The started stopwatch.
+
+        """
         if not self.running:
             self._start = time.perf_counter() - self.duration
             self._end = None
         return self
 
     def stop(self) -> Stopwatch:
+        """
+        Stops the stopwatch, freezing the duration.
+
+        Returns:
+            Stopwatch: The stopped stopwatch.
+
+        """
         if self.running:
             self._end = time.perf_counter()
         return self

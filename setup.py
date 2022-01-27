@@ -4,7 +4,7 @@ description = "A simple stopwatch for python"
 
 long_description = ""
 
-with open("README.rst", "utf-8") as f:
+with open("README.rst", encoding="utf-8") as f:
     long_description = f.read()
 
 version = "1.0.2"

@@ -7,7 +7,7 @@ long_description = ""
 with open("README.rst", "utf-8") as f:
     long_description = f.read()
 
-version="1.0.1"
+version = "1.0.2"
 
 packages = ["stopwatch"]
 

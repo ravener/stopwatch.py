@@ -11,7 +11,8 @@ import unittest
 # def stuff():
 #     ...
 # and the `await` to a `yield from`
-# For even lower python versions where asyncio didn't exist, just comment that lines
+# For even lower python versions where asyncio didn't exist, just comment
+# that lines
 
 
 class StopwatchTest(unittest.TestCase):
@@ -23,8 +24,8 @@ class StopwatchTest(unittest.TestCase):
         stopwatch.stop()
         m = str(stopwatch)
 
-        # Can't guarantee exact timings as python speed may differ each execution
-        # so ensure it is at least a 100ms
+        # Can't guarantee exact timings as python speed may differ each
+        # execution so ensure it is at least a 100ms
         # also a test for friendly time string
         self.assertTrue(m.startswith("100") and m.endswith("ms"))
 

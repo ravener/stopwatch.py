@@ -27,7 +27,8 @@ import time
 from typing import Optional
 
 
-# Ported from https://github.com/dirigeants/klasa/blob/541c9e5f5646db4162f54c7ed61362d479176eed/src/lib/util/Stopwatch.js
+# Ported from
+# https://github.com/dirigeants/klasa/blob/541c9e5f5646db4162f54c7ed61362d479176eed/src/lib/util/Stopwatch.js
 class Stopwatch:
     _start: float
     _end: Optional[float]
@@ -77,7 +78,7 @@ class Stopwatch:
 
         Returns:
             Stopwatch: The resetted stopwatch.
-        
+
         """
         self._start = time.perf_counter()
         self._end = self._start

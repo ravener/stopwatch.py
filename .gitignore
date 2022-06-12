@@ -1,3 +1,4 @@
 dist
 stopwatch.py.egg-info
 build
+stopwatch/__pycache__

@@ -1,9 +1,10 @@
 Stopwatch.py
 ============
-A simple stopwatch for Python that is small, efficient and requires no dependencies.
+A simple stopwatch for python, small, efficient and no dependencies
 
 Install
 -------
+Requires Python 3+ since this module depends on ``time.perf_counter()`` which does not exist in Python 2.
 
 .. code:: sh
 
@@ -15,22 +16,20 @@ Usage
 
     from stopwatch import Stopwatch
 
-    stopwatch = Stopwatch() # Stopwatch keeps running
-    # but really its just math with time.perf_counter() so there isn't really a task
+    # Argument specifies decimal precision for __str__
+    # e.g 2 digits = 1.00, 3 digits = 1.000
+    # Optional, defaults to 2
+    stopwatch = Stopwatch(2) # Start a stopwatch
+    # It's just math with time.perf_counter() so there isn't really a task
     # running in background
 
-    stopwatch.stop() # stop stopwatch, time freezes
+    stopwatch.stop() # Stop stopwatch, time freezes
     stopwatch.start() # Start it again
-    stopwatch.reset() # reset it back to 0
-    stopwatch.restart() # reset and start again
-    stopwatch.running # wether stopwatch is running
-    stopwatch.duration # Get the duration
-    str(stopwatch) # Get the friendly duration string
-
-
-Python2 Support?
-----------------
-Sorry, this module depends on ``time.perf_counter()`` which doesn't exist on Python2. However, it should be compatible with any python3+ versions, maybe even other python implementations if it implements ``time.perf_counter()``
+    stopwatch.reset() # Reset it back to 0
+    stopwatch.restart() # Reset and start again
+    stopwatch.running # Wether stopwatch is running
+    stopwatch.duration # Get the duration (in seconds)
+    str(stopwatch) # Get a friendly duration string
 
 License
 -------

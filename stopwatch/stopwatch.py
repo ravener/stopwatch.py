@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2018 Free TNT
+Copyright (c) 2018-2022 Ravener
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,13 +25,16 @@ import time
 
 # Ported from https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js
 class Stopwatch:
-    def __init__(self):
+    def __init__(self, digits=2):
+        self.digits = digits
         self._start = time.perf_counter()
         self._end = None
 
     @property
     def duration(self):
-        return self._end - self._start if self._end else time.perf_counter() - self._start
+        return (
+            self._end - self._start if self._end else time.perf_counter() - self._start
+        )
 
     @property
     def running(self):
@@ -40,28 +43,35 @@ class Stopwatch:
     def restart(self):
         self._start = time.perf_counter()
         self._end = None
+
         return self
 
     def reset(self):
         self._start = time.perf_counter()
         self._end = self._start
+
         return self
 
     def start(self):
         if not self.running:
             self._start = time.perf_counter() - self.duration
             self._end = None
+
         return self
 
     def stop(self):
         if self.running:
             self._end = time.perf_counter()
+
         return self
 
     def __str__(self):
-        time = self.duration * 1000
-        if time >= 1000:
-            return "{:.2f}s".format(time / 1000)
+        time = self.duration
+
         if time >= 1:
-            return "{:.2f}ms".format(time)
-        return "{:.2f}μs".format(time * 1000)
+            return "{:.{}f}s".format(time, self.digits)
+
+        if time >= 0.01:
+            return "{:.{}f}ms".format(time * 1000, self.digits)
+
+        return "{:.{}f}μs".format(time * 1000 * 1000, self.digits)

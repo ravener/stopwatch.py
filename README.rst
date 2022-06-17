@@ -1,10 +1,10 @@
 Stopwatch.py
 ============
-A simple stopwatch for python, small, efficient and no dependencies
+A simple stopwatch for Python.
 
 Install
 -------
-Requires Python 3+ since this module depends on ``time.perf_counter()`` which does not exist in Python 2.
+Requires Python 3.5+
 
 .. code:: sh
 
@@ -34,7 +34,3 @@ Usage
 License
 -------
 MIT
-
-Credits
--------
-Originally written by `dirigeants <https://github.com/dirigeants>`_ in `this file <https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js>`_ i just looked at it and rewrote it in python, and it felt useful to put it in a module.

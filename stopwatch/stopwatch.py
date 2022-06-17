@@ -23,49 +23,44 @@ SOFTWARE.
 """
 import time
 
-# Ported from https://github.com/dirigeants/klasa/blob/master/src/lib/util/Stopwatch.js
+
 class Stopwatch:
-    def __init__(self, digits=2):
+    digits: int
+
+    def __init__(self, digits: int = 2):
         self.digits = digits
+
         self._start = time.perf_counter()
         self._end = None
 
     @property
-    def duration(self):
+    def duration(self) -> float:
         return (
             self._end - self._start if self._end else time.perf_counter() - self._start
         )
 
     @property
-    def running(self):
+    def running(self) -> bool:
         return not self._end
 
-    def restart(self):
+    def restart(self) -> None:
         self._start = time.perf_counter()
         self._end = None
 
-        return self
-
-    def reset(self):
+    def reset(self) -> None:
         self._start = time.perf_counter()
         self._end = self._start
 
-        return self
-
-    def start(self):
+    def start(self) -> None:
         if not self.running:
             self._start = time.perf_counter() - self.duration
             self._end = None
 
-        return self
-
-    def stop(self):
+    def stop(self) -> None:
         if self.running:
             self._end = time.perf_counter()
 
-        return self
-
-    def __str__(self):
+    def __str__(self) -> str:
         time = self.duration
 
         if time >= 1:

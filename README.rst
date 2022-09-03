@@ -27,7 +27,7 @@ Usage
     stopwatch.start() # Start it again
     stopwatch.reset() # Reset it back to 0
     stopwatch.restart() # Reset and start again
-    stopwatch.running # Wether stopwatch is running
+    stopwatch.running # Whether stopwatch is running
     stopwatch.duration # Get the duration (in seconds)
     str(stopwatch) # Get a friendly duration string
 

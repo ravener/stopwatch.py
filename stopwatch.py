@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 MIT License
 
@@ -21,6 +22,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
+__author__ = "Ravener"
+__version__ = "2.0.1"
+__license__ = "MIT"
+
 import time
 
 

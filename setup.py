@@ -1,23 +1,22 @@
 from setuptools import setup
 from pathlib import Path
 
-description = "A simple stopwatch for python"
+import stopwatch
 
+description = "A simple stopwatch for python"
 long_description = Path("README.rst").read_text("utf-8")
-version = "2.0.0"
-packages = ["stopwatch"]
 
 setup(
     name="stopwatch.py",
-    version=version,
+    version=stopwatch.__version__,
     description=description,
     long_description=long_description,
     long_description_content_type="text/x-rst",
     url="https://github.com/ravener/stopwatch.py",
-    author="Ravener",
+    author=stopwatch.__author__,
     author_email="ravener.anime@gmail.com",
-    license="MIT",
-    packages=packages,
+    license=stopwatch.__license__,
+    py_modules=["stopwatch"],
     python_requires=">=3.5",
     classifiers=[
         "Programming Language :: Python :: 3",

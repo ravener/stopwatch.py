@@ -1,4 +1,4 @@
-dist
+dist/
 stopwatch.py.egg-info
-build
-stopwatch/__pycache__
+build/
+__pycache__/
